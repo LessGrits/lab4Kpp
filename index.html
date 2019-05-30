@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CriptoCalculator</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="main">
+    <div class="selectCoin">
+        <button  @click="getCoin(btc)" class="btc coin" id="btc" >
+            <div class="logo"><img src="img/BTC.png" alt="">
+            <p>BTC</p>
+            </div>
+            <div class="currencies">
+                <p>USD: {{btc.usd}}</p>
+                <p>UAH: {{btc.uah}}</p>
+                <p>RUB: {{btc.rub}}</p>
+            </div>
+        </button>
+        <button @click="getCoin(eth)" class="eth coin" id="eth" >
+            <div class="logo"><img src="img/ETH.png" alt="">
+            <p>ETH</p>
+            </div>
+            <div class="currencies">
+                <p>USD:{{eth.usd}}</p><!---->
+                <p>UAH:{{eth.uah}}</p>
+                <p>RUB:{{eth.rub}}</p>
+            </div>
+        </button>
+        <button @click="getCoin(xrp)" class="xrp coin" id="xrp" >
+            <div class="logo"><img src="img/XRP.png" alt="">
+            <p>XRP</p>
+            </div>
+            <div class="currencies">
+                <p>USD: {{xrp.usd}}</p><!---->
+                <p>UAH: {{xrp.uah}}</p>
+                <p>RUB: {{xrp.rub}}</p>
+            </div>
+        </button>
+    </div>
+    <h1 id="selectCoin">Selected coin: {{coin.name}} </h1>
+    <label> Volume:
+        <input v-model="value" type="number"></label>
+    <div class="chooseCurrency">
+        <button @click ="getCurrency(namesCurrency.usd,coin.usd)" >usd</button>
+        <button @click ="getCurrency(namesCurrency.uah,coin.uah)">uah</button>
+        <button @click ="getCurrency(namesCurrency.rub,coin.rub)">rub</button>
+    </div>
+    <div class="resultCalc">
+        <p v-if="currency && value " id="out">{{getResult}}</p>
+    </div>
+    <div >
+
+    </div>
+
+</div>
+
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
